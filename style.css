@@ -1,0 +1,220 @@
+/*precisamos zerar as margens e os espaçamentos padrões do navegador*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* :root é um seletor CSS que representa o elemento raiz do documento, que é geralmente o elemento <html>. Ele é usado para definir variáveis CSS globais que podem ser reutilizadas em todo o documento. As variáveis CSS são definidas usando a sintaxe --nome-da-variavel: valor; e podem ser acessadas usando a função var(--nome-da-variavel). */
+
+:root {
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+  --text-color: white;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.light-mode {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --switch-bg-url: url(./assets/sun.svg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+/*
+body {
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+}
+
+todas as propriedades podem ser aplicadas ao mesmo tempo, ou seja, não é necessário colocar cada propriedade em uma linha diferente. O código abaixo tem o mesmo efeito do código acima:
+body {
+  background: url(./assets/bg-mobile.jpg) no-repeat top center / cover;
+}
+  em ordem:
+  color, image, repeat, attachment (url image), position, size
+
+*/
+
+body {
+  background: var(--bg-url) no-repeat top center / cover;
+  height: 100vh;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0;
+  padding: 0 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px 0;
+}
+
+#profile img {
+  width: 112px;
+  border-radius: 50%;
+  border: 1px solid rgb(154, 131, 131);
+}
+
+#profile h1 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+#profile h2 {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+#switch {
+  width: 64px;
+  position: relative;
+  margin: auto;
+}
+
+#switch button {
+  background: white var(--switch-bg-url) no-repeat center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+  animation: slide-back 0.2s;
+}
+
+.light-mode #switch button {
+  animation: slide-forward 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+  list-style: none;
+}
+
+ul li a {
+  gap: 8px;
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-weight: 500;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li a:hover {
+  background: var(--surface-color);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+#footer {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light-mode {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
