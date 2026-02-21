@@ -111,7 +111,7 @@ body * {
 }
 
 .light-mode #switch button {
-  animation: slide-forward 0.2s forwards;
+  animation: slide-in 0.2s forwards;
 }
 
 #switch button:hover {
