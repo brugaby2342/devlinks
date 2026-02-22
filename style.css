@@ -9,18 +9,18 @@
 /* :root é um seletor CSS que representa o elemento raiz do documento, que é geralmente o elemento <html>. Ele é usado para definir variáveis CSS globais que podem ser reutilizadas em todo o documento. As variáveis CSS são definidas usando a sintaxe --nome-da-variavel: valor; e podem ser acessadas usando a função var(--nome-da-variavel). */
 
 :root {
-  --bg-url: url(./assets/bg-mobile.jpg);
+  --bg-url: url(./assets/bg-dark-mobile.jpg);
   --switch-bg-url: url(./assets/moon-stars.svg);
   --text-color: white;
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --surface-color-hover: rgba(0, 0, 0, 0.1);
   --highlight-color: rgba(255, 255, 255, 0.2);
 }
 
 .light-mode {
   --text-color: black;
-  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --bg-url: url(./assets/bg-light-mobile.jpg);
   --switch-bg-url: url(./assets/sun.svg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
@@ -159,7 +159,7 @@ ul li a {
 }
 
 ul li a:hover {
-  background: var(--surface-color);
+  background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
 }
 
@@ -177,7 +177,8 @@ ul li a:hover {
   align-items: center;
   padding: 16px;
   border-radius: 50%;
-  transition: background 0.2s;
+  transition: background 0.4s;
+  
 }
 
 #social-links a:hover {
@@ -192,11 +193,11 @@ ul li a:hover {
 
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/bg-desktop.jpg);
+    --bg-url: url(./assets/bg-dark-desktop.jpg);
   }
 
   .light-mode {
-    --bg-url: url(./assets/bg-desktop-light.jpg);
+    --bg-url: url(./assets/bg-light-desktop.jpg);
   }
 }
 
